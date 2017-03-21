@@ -2,11 +2,14 @@ FROM fedora:25
 
 MAINTAINER "Petr Hracek" <phracek@redhat.com>
 
+LABEL summary="Provides the latest set of packages used for debugging."
+LABEL description="The Fedora Debugging Tools Container is a docker-formatted image that includes hundreds of software tools for troubleshooting and investigating a Fedora Host. Designed to run as a privileged container."
+LABEL io.k8s.display-name="Fedora Debugging Tools"
+
 RUN dnf install -y --setopt=tsflags=nodocs \
     abrt \
     atomic \
     bash-completion \
-    bc \
     bind-utils \
     blktrace \
     btrfs-progs \
@@ -15,30 +18,19 @@ RUN dnf install -y --setopt=tsflags=nodocs \
     docker \
     docker-latest \
     docker-v1.10-migrator \
-    e2fsprogs \
     ethtool \
-    file \
-    findutils \
-    gcc \
-    gdb \
-    gdb-gdbserver \
     git \
-    glibc-common \
-    glibc-utils \
     gomtree \
     hwloc \
     iotop \
     iproute \
     iputils \
-    kernel \
     kubernetes \
     kubernetes-master \
     kubernetes-client \
     kubernetes-node \
-    less \
     ltrace \
     mailx \
-    man-db \
     net-tools \
     netsniff-ng \
     nmap-ncat \
@@ -52,22 +44,14 @@ RUN dnf install -y --setopt=tsflags=nodocs \
     pcp-collector \
     pcp-export-pcp2graphite \
     pcp-export-zabbix-agent \
-    perf \
-    procps-ng \
-    psmisc \
     python-docker-py \
     rootfiles \
     screen \
     strace \
     sysstat \
-    systemd \
     systemtap \
     systemtap-client \
-    tar \
     tcpdump \
-    vim-enhanced \
-    vim-minimal \
-    which \
     xfsprogs \
     xorg-x11-xauth && \
     dnf -y clean all
